@@ -1,0 +1,36 @@
+# Programas-em-C
+
+
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+float nota(float n1, float n2, float n3, char x);
+main ()
+{
+    float n1,n2,n3,res;
+    char x;
+    printf ("\nDIGITE AS TRES NOTAS DO ALUNO.\n");
+    scanf ("%f %f %f",&n1,&n2,&n3);
+    do
+    {
+        printf ("digite o conceito A para media aritmetica ou P para media ponderada.\n");
+        scanf ("%c",&x);
+    }while ((x!='a') && (x!='p') && (x!='A') && (x!='P'));
+    res=nota(n1,n2,n3,x);
+    printf ("A MEDIA DO ALUNO E: %.1f.\n\n",res);
+    return 0;
+    system("pause");
+}
+float nota(float n1, float n2, float n3, char x)
+{
+    float media;
+    if (islower(x))
+    x=toupper(x);
+    if (x=='A')
+    media=(n1+n2+n3)/3;
+    else
+    media=((n1+(2*n2)+(3*n3))/6);
+      
+    return media;
+	system("pause");
+}
